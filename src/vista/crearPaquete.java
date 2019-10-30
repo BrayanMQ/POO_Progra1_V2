@@ -35,145 +35,170 @@ public class crearPaquete extends javax.swing.JDialog {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        txt_id = new javax.swing.JTextField();
-        txt_peso = new javax.swing.JTextField();
-        txt_descripcion = new javax.swing.JTextField();
-        txt_remitente = new javax.swing.JTextField();
-        lbl_id = new javax.swing.JLabel();
-        lbl_peso = new javax.swing.JLabel();
-        lbl_descripcion = new javax.swing.JLabel();
-        lbl_remitente = new javax.swing.JLabel();
-        btn_crearPaquete = new javax.swing.JButton();
+        jPanel2 = new javax.swing.JPanel();
+        jPanel3 = new javax.swing.JPanel();
+        txt_remitente = new rojeru_san.RSMTextFull();
+        txt_id = new rojeru_san.RSMTextFull();
+        lbl_creacionCounter = new javax.swing.JLabel();
+        txt_descripcion = new rojeru_san.RSMTextFull();
+        txt_peso = new rojeru_san.RSMTextFull();
+        cb_tipoPaquete = new rojerusan.RSComboMetro();
+        lbl_creacionCounter1 = new javax.swing.JLabel();
+        checkB_fragil = new rojerusan.RSSwitch();
+        lbl_creacionCounter2 = new javax.swing.JLabel();
+        checkB_contElectronico = new rojerusan.RSSwitch();
+        btn_crearPaquete = new rojeru_san.RSButtonRiple();
         lbl_error = new javax.swing.JLabel();
-        lbl_tipoPaquete = new javax.swing.JLabel();
-        cb_tipoPaquete = new javax.swing.JComboBox<>();
-        lbl_fragil = new javax.swing.JLabel();
-        checkB_fragil = new javax.swing.JCheckBox();
-        lbl_contElectronico = new javax.swing.JLabel();
-        checkB_contElectronico = new javax.swing.JCheckBox();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
-        txt_descripcion.addActionListener(new java.awt.event.ActionListener() {
+        jPanel2.setBackground(new java.awt.Color(0, 112, 192));
+
+        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
+
+        txt_remitente.setPlaceholder("Remitente");
+        txt_remitente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txt_descripcionActionPerformed(evt);
+                txt_remitenteActionPerformed(evt);
             }
         });
 
-        lbl_id.setText("Id:");
+        txt_id.setPlaceholder("Ingrese un ID");
 
-        lbl_peso.setText("Peso:");
+        lbl_creacionCounter.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        lbl_creacionCounter.setForeground(new java.awt.Color(0, 112, 192));
+        lbl_creacionCounter.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbl_creacionCounter.setText("Crear Paquete");
 
-        lbl_descripcion.setText("Descripción:");
+        txt_descripcion.setPlaceholder("Descripción");
 
-        lbl_remitente.setText("Remitente:");
+        txt_peso.setPlaceholder("Peso");
 
-        btn_crearPaquete.setText("Crear paquete");
+        cb_tipoPaquete.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Caja", "Bolsa" }));
+
+        lbl_creacionCounter1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        lbl_creacionCounter1.setForeground(new java.awt.Color(0, 112, 192));
+        lbl_creacionCounter1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbl_creacionCounter1.setText("Frágil");
+
+        checkB_fragil.setActivado(false);
+
+        lbl_creacionCounter2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        lbl_creacionCounter2.setForeground(new java.awt.Color(0, 112, 192));
+        lbl_creacionCounter2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbl_creacionCounter2.setText("Electrónico");
+
+        checkB_contElectronico.setActivado(false);
+
+        btn_crearPaquete.setText("Crear Paquete");
         btn_crearPaquete.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_crearPaqueteActionPerformed(evt);
             }
         });
 
-        lbl_tipoPaquete.setText("Tipo de paquete:");
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lbl_creacionCounter, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addComponent(txt_id, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 44, Short.MAX_VALUE)
+                                .addComponent(txt_peso, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txt_descripcion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addComponent(txt_remitente, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(cb_tipoPaquete, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addGroup(jPanel3Layout.createSequentialGroup()
+                                        .addComponent(lbl_creacionCounter2)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(checkB_contElectronico, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(jPanel3Layout.createSequentialGroup()
+                                        .addComponent(lbl_creacionCounter1)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(checkB_fragil, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGap(0, 0, Short.MAX_VALUE)))))
+                .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btn_crearPaquete, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(154, 154, 154))
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(lbl_error, javax.swing.GroupLayout.DEFAULT_SIZE, 504, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(34, 34, 34)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addComponent(lbl_creacionCounter)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txt_id, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txt_peso, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addComponent(txt_descripcion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(txt_remitente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(cb_tipoPaquete, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(lbl_creacionCounter1, javax.swing.GroupLayout.DEFAULT_SIZE, 32, Short.MAX_VALUE)
+                    .addComponent(checkB_fragil, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lbl_creacionCounter2, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(checkB_contElectronico, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lbl_error, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btn_crearPaquete, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(72, Short.MAX_VALUE))
+        );
 
-        cb_tipoPaquete.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Caja", "Bolsa" }));
-        cb_tipoPaquete.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cb_tipoPaqueteActionPerformed(evt);
-            }
-        });
-
-        lbl_fragil.setText("Frágil:");
-
-        lbl_contElectronico.setText("Contenido electrónico:");
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(48, 48, 48)
+                .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(48, 48, 48))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(lbl_error, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(lbl_fragil, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(lbl_id, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lbl_peso, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lbl_descripcion, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lbl_remitente, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lbl_tipoPaquete, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(lbl_contElectronico, javax.swing.GroupLayout.Alignment.LEADING))
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(checkB_contElectronico)
-                                    .addComponent(checkB_fragil))
-                                .addGap(13, 13, 13))
-                            .addGroup(layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txt_id, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(txt_descripcion, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(txt_remitente)
-                                    .addComponent(txt_peso)
-                                    .addComponent(cb_tipoPaquete, 0, 105, Short.MAX_VALUE))))))
-                .addGap(32, 32, 32))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btn_crearPaquete)
-                .addGap(74, 74, 74))
+            .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(62, 62, 62)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txt_id, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lbl_id))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txt_peso, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lbl_peso))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txt_descripcion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lbl_descripcion))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txt_remitente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lbl_remitente))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lbl_tipoPaquete)
-                    .addComponent(cb_tipoPaquete, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(checkB_fragil)
-                    .addComponent(lbl_fragil))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(checkB_contElectronico)
-                    .addComponent(lbl_contElectronico))
-                .addGap(18, 18, 18)
-                .addComponent(lbl_error, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(btn_crearPaquete)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txt_descripcionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_descripcionActionPerformed
+    private void txt_remitenteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_remitenteActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txt_descripcionActionPerformed
-
-    private void cb_tipoPaqueteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cb_tipoPaqueteActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_cb_tipoPaqueteActionPerformed
+    }//GEN-LAST:event_txt_remitenteActionPerformed
 
     private void btn_crearPaqueteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_crearPaqueteActionPerformed
         boolean error = false;
@@ -193,7 +218,7 @@ public class crearPaquete extends javax.swing.JDialog {
                             Double.parseDouble(txt_peso.getText()), 
                             txt_descripcion.getText(), txt_remitente.getText(), 
                             (String)cb_tipoPaquete.getSelectedItem(), 
-                            checkB_fragil.isSelected(), checkB_contElectronico.isSelected());
+                            checkB_fragil.isActivado(), checkB_contElectronico.isActivado());
                     
                     boolean insertado = Controlador.getSingletonInstance()
                             .getGestorEntregable().buscarEntregableEInsertar(paquete, casillero);
@@ -214,7 +239,7 @@ public class crearPaquete extends javax.swing.JDialog {
             mensajeError = mensajeError  + "No se debe dejar espacios en blanco.\n";
             
         lbl_error.setText(mensajeError);
-        
+    
     }//GEN-LAST:event_btn_crearPaqueteActionPerformed
 
     /**
@@ -260,21 +285,19 @@ public class crearPaquete extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btn_crearPaquete;
-    private javax.swing.JComboBox<String> cb_tipoPaquete;
-    private javax.swing.JCheckBox checkB_contElectronico;
-    private javax.swing.JCheckBox checkB_fragil;
-    private javax.swing.JLabel lbl_contElectronico;
-    private javax.swing.JLabel lbl_descripcion;
+    private rojeru_san.RSButtonRiple btn_crearPaquete;
+    private rojerusan.RSComboMetro cb_tipoPaquete;
+    private rojerusan.RSSwitch checkB_contElectronico;
+    private rojerusan.RSSwitch checkB_fragil;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JLabel lbl_creacionCounter;
+    private javax.swing.JLabel lbl_creacionCounter1;
+    private javax.swing.JLabel lbl_creacionCounter2;
     private javax.swing.JLabel lbl_error;
-    private javax.swing.JLabel lbl_fragil;
-    private javax.swing.JLabel lbl_id;
-    private javax.swing.JLabel lbl_peso;
-    private javax.swing.JLabel lbl_remitente;
-    private javax.swing.JLabel lbl_tipoPaquete;
-    private javax.swing.JTextField txt_descripcion;
-    private javax.swing.JTextField txt_id;
-    private javax.swing.JTextField txt_peso;
-    private javax.swing.JTextField txt_remitente;
+    private rojeru_san.RSMTextFull txt_descripcion;
+    private rojeru_san.RSMTextFull txt_id;
+    private rojeru_san.RSMTextFull txt_peso;
+    private rojeru_san.RSMTextFull txt_remitente;
     // End of variables declaration//GEN-END:variables
 }

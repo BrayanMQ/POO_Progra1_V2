@@ -35,125 +35,159 @@ public class crearRevista extends javax.swing.JDialog {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        txt_id = new javax.swing.JTextField();
-        txt_peso = new javax.swing.JTextField();
-        txt_descripcion = new javax.swing.JTextField();
-        txt_remitente = new javax.swing.JTextField();
-        lbl_id = new javax.swing.JLabel();
-        lbl_peso = new javax.swing.JLabel();
-        lbl_descripcion = new javax.swing.JLabel();
-        lbl_remitente = new javax.swing.JLabel();
-        btn_crearRevista = new javax.swing.JButton();
+        jPanel2 = new javax.swing.JPanel();
+        jPanel3 = new javax.swing.JPanel();
+        txt_remitente = new rojeru_san.RSMTextFull();
+        txt_id = new rojeru_san.RSMTextFull();
+        lbl_creacionCounter = new javax.swing.JLabel();
+        txt_descripcion = new rojeru_san.RSMTextFull();
+        txt_peso = new rojeru_san.RSMTextFull();
+        checkB_esCatalogo = new rojerusan.RSSwitch();
+        txt_tema = new rojeru_san.RSMTextFull();
+        lbl_creacionCounter1 = new javax.swing.JLabel();
         lbl_error = new javax.swing.JLabel();
-        lbl_tipoRevista = new javax.swing.JLabel();
-        lbl_esCatalogo = new javax.swing.JLabel();
-        checkB_esCatalogo = new javax.swing.JCheckBox();
-        txt_tema = new javax.swing.JTextField();
+        btn_crearRevista = new rojeru_san.RSButtonRiple();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
-        txt_descripcion.addActionListener(new java.awt.event.ActionListener() {
+        jPanel2.setBackground(new java.awt.Color(0, 112, 192));
+
+        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
+
+        txt_remitente.setPlaceholder("Remitente");
+        txt_remitente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txt_descripcionActionPerformed(evt);
+                txt_remitenteActionPerformed(evt);
             }
         });
 
-        lbl_id.setText("Id:");
+        txt_id.setPlaceholder("Ingrese un ID");
 
-        lbl_peso.setText("Peso:");
+        lbl_creacionCounter.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        lbl_creacionCounter.setForeground(new java.awt.Color(0, 112, 192));
+        lbl_creacionCounter.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbl_creacionCounter.setText("Crear Revista");
 
-        lbl_descripcion.setText("Descripción:");
+        txt_descripcion.setPlaceholder("Descripción");
 
-        lbl_remitente.setText("Remitente:");
+        txt_peso.setPlaceholder("Peso");
 
-        btn_crearRevista.setText("Crear revista");
+        checkB_esCatalogo.setActivado(false);
+
+        txt_tema.setPlaceholder("Tema de la Revista");
+        txt_tema.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_temaActionPerformed(evt);
+            }
+        });
+
+        lbl_creacionCounter1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        lbl_creacionCounter1.setForeground(new java.awt.Color(0, 112, 192));
+        lbl_creacionCounter1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbl_creacionCounter1.setText("Es Catálogo");
+
+        btn_crearRevista.setText("Crear Revista");
         btn_crearRevista.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_crearRevistaActionPerformed(evt);
             }
         });
 
-        lbl_tipoRevista.setText("Tema de la revista:");
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lbl_creacionCounter, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addComponent(txt_id, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 44, Short.MAX_VALUE)
+                                .addComponent(txt_peso, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txt_descripcion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                                .addComponent(lbl_creacionCounter1)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(checkB_esCatalogo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addComponent(txt_remitente, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(txt_tema, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addContainerGap())
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(lbl_error, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btn_crearRevista, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(159, 159, 159))
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(34, 34, 34)
+                .addComponent(lbl_creacionCounter)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txt_id, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txt_peso, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(txt_descripcion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txt_remitente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txt_tema, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(22, 22, 22)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(checkB_esCatalogo, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbl_creacionCounter1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(lbl_error, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btn_crearRevista, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(50, Short.MAX_VALUE))
+        );
 
-        lbl_esCatalogo.setText("Es catálogo:");
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(48, 48, 48)
+                .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(48, 48, 48))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(lbl_error, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lbl_id)
-                                    .addComponent(lbl_peso)
-                                    .addComponent(lbl_descripcion)
-                                    .addComponent(lbl_remitente)
-                                    .addComponent(lbl_tipoRevista)
-                                    .addComponent(lbl_esCatalogo, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(53, 53, 53)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addComponent(txt_id)
-                                            .addComponent(txt_peso)
-                                            .addComponent(txt_descripcion)
-                                            .addComponent(txt_remitente, javax.swing.GroupLayout.DEFAULT_SIZE, 85, Short.MAX_VALUE)
-                                            .addComponent(txt_tema)))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(checkB_esCatalogo)
-                                        .addGap(24, 24, 24)))))
-                        .addContainerGap(34, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(btn_crearRevista)
-                        .addGap(85, 85, 85))))
+            .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(62, 62, 62)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txt_id, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lbl_id))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txt_peso, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lbl_peso))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txt_descripcion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lbl_descripcion))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txt_remitente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lbl_remitente))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lbl_tipoRevista)
-                    .addComponent(txt_tema, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(21, 21, 21)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(checkB_esCatalogo)
-                    .addComponent(lbl_esCatalogo))
-                .addGap(13, 13, 13)
-                .addComponent(lbl_error, javax.swing.GroupLayout.DEFAULT_SIZE, 39, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btn_crearRevista)
-                .addGap(18, 18, 18))
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txt_descripcionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_descripcionActionPerformed
+    private void txt_remitenteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_remitenteActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txt_descripcionActionPerformed
+    }//GEN-LAST:event_txt_remitenteActionPerformed
+
+    private void txt_temaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_temaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_temaActionPerformed
 
     private void btn_crearRevistaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_crearRevistaActionPerformed
         boolean error = false;
@@ -183,7 +217,7 @@ public class crearRevista extends javax.swing.JDialog {
             
             if (!error) {
                 Revista revista = Controlador.getSingletonInstance().getGestorEntregable().crearRevista(
-                        checkB_esCatalogo.isSelected(), txt_tema.getText(), txt_id.getText(),
+                        checkB_esCatalogo.isActivado(), txt_tema.getText(), txt_id.getText(),
                         txt_peso.getText(), txt_descripcion.getText(), txt_remitente.getText());
                 
                 boolean insertado = Controlador.getSingletonInstance()
@@ -246,19 +280,17 @@ public class crearRevista extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btn_crearRevista;
-    private javax.swing.JCheckBox checkB_esCatalogo;
-    private javax.swing.JLabel lbl_descripcion;
+    private rojeru_san.RSButtonRiple btn_crearRevista;
+    private rojerusan.RSSwitch checkB_esCatalogo;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JLabel lbl_creacionCounter;
+    private javax.swing.JLabel lbl_creacionCounter1;
     private javax.swing.JLabel lbl_error;
-    private javax.swing.JLabel lbl_esCatalogo;
-    private javax.swing.JLabel lbl_id;
-    private javax.swing.JLabel lbl_peso;
-    private javax.swing.JLabel lbl_remitente;
-    private javax.swing.JLabel lbl_tipoRevista;
-    private javax.swing.JTextField txt_descripcion;
-    private javax.swing.JTextField txt_id;
-    private javax.swing.JTextField txt_peso;
-    private javax.swing.JTextField txt_remitente;
-    private javax.swing.JTextField txt_tema;
+    private rojeru_san.RSMTextFull txt_descripcion;
+    private rojeru_san.RSMTextFull txt_id;
+    private rojeru_san.RSMTextFull txt_peso;
+    private rojeru_san.RSMTextFull txt_remitente;
+    private rojeru_san.RSMTextFull txt_tema;
     // End of variables declaration//GEN-END:variables
 }

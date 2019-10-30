@@ -24,128 +24,153 @@ public class crearSobre extends javax.swing.JDialog {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        txt_id = new javax.swing.JTextField();
-        txt_peso = new javax.swing.JTextField();
-        txt_descripcion = new javax.swing.JTextField();
-        txt_remitente = new javax.swing.JTextField();
-        lbl_id = new javax.swing.JLabel();
-        lbl_peso = new javax.swing.JLabel();
-        lbl_descripcion = new javax.swing.JLabel();
-        lbl_remitente = new javax.swing.JLabel();
-        btn_crearSobre = new javax.swing.JButton();
+        jPanel2 = new javax.swing.JPanel();
+        jPanel3 = new javax.swing.JPanel();
+        txt_remitente = new rojeru_san.RSMTextFull();
+        txt_id = new rojeru_san.RSMTextFull();
+        lbl_creacionCounter = new javax.swing.JLabel();
+        txt_descripcion = new rojeru_san.RSMTextFull();
+        txt_peso = new rojeru_san.RSMTextFull();
+        cb_tipoSobre = new rojerusan.RSComboMetro();
         lbl_error = new javax.swing.JLabel();
-        lbl_tipoSobre = new javax.swing.JLabel();
-        cb_tipoSobre = new javax.swing.JComboBox<>();
-        lbl_tieneDocumentos = new javax.swing.JLabel();
-        checkB_tieneDocumentos = new javax.swing.JCheckBox();
+        lbl_creacionCounter1 = new javax.swing.JLabel();
+        checkB_tieneDocumentos = new rojerusan.RSSwitch();
+        btn_crearSobre = new rojeru_san.RSButtonRiple();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
-        txt_descripcion.addActionListener(new java.awt.event.ActionListener() {
+        jPanel2.setBackground(new java.awt.Color(0, 112, 192));
+
+        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
+
+        txt_remitente.setPlaceholder("Remitente");
+        txt_remitente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txt_descripcionActionPerformed(evt);
+                txt_remitenteActionPerformed(evt);
             }
         });
 
-        lbl_id.setText("Id:");
+        txt_id.setPlaceholder("Ingrese un ID");
 
-        lbl_peso.setText("Peso:");
+        lbl_creacionCounter.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        lbl_creacionCounter.setForeground(new java.awt.Color(0, 112, 192));
+        lbl_creacionCounter.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbl_creacionCounter.setText("Crear Sobre");
 
-        lbl_descripcion.setText("Descripción:");
+        txt_descripcion.setPlaceholder("Descripción");
 
-        lbl_remitente.setText("Remitente:");
+        txt_peso.setPlaceholder("Peso");
 
-        btn_crearSobre.setText("Crear paquete");
+        cb_tipoSobre.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Aéreo", "Manilla" }));
+
+        lbl_creacionCounter1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        lbl_creacionCounter1.setForeground(new java.awt.Color(0, 112, 192));
+        lbl_creacionCounter1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbl_creacionCounter1.setText("Tiene  Documentos");
+
+        checkB_tieneDocumentos.setActivado(false);
+
+        btn_crearSobre.setText("Crear Sobre");
         btn_crearSobre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_crearSobreActionPerformed(evt);
             }
         });
 
-        lbl_tipoSobre.setText("Tipo de sobre:");
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lbl_creacionCounter, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txt_remitente, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addComponent(txt_id, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(txt_peso, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txt_descripcion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                                .addComponent(lbl_creacionCounter1)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(checkB_tieneDocumentos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
+                                .addComponent(cb_tipoSobre, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(lbl_error, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(btn_crearSobre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(161, 161, 161))
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(34, 34, 34)
+                .addComponent(lbl_creacionCounter)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txt_id, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txt_peso, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(txt_descripcion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(txt_remitente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(22, 22, 22)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE, false)
+                            .addComponent(checkB_tieneDocumentos, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lbl_creacionCounter1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(cb_tipoSobre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lbl_error, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btn_crearSobre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(62, Short.MAX_VALUE))
+        );
 
-        cb_tipoSobre.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Aéreo", "Manilla" }));
-
-        lbl_tieneDocumentos.setText("Tiene documentos:");
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(48, 48, 48)
+                .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(48, 48, 48))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btn_crearSobre)
-                .addGap(76, 76, 76))
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(lbl_error, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lbl_id)
-                            .addComponent(lbl_peso)
-                            .addComponent(lbl_descripcion)
-                            .addComponent(lbl_remitente)
-                            .addComponent(lbl_tipoSobre)
-                            .addComponent(lbl_tieneDocumentos))
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(59, 59, 59)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(txt_id)
-                                    .addComponent(txt_peso)
-                                    .addComponent(txt_descripcion)
-                                    .addComponent(txt_remitente, javax.swing.GroupLayout.DEFAULT_SIZE, 85, Short.MAX_VALUE)
-                                    .addComponent(cb_tipoSobre, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(checkB_tieneDocumentos)
-                                .addGap(28, 28, 28)))))
-                .addContainerGap(12, Short.MAX_VALUE))
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(62, 62, 62)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txt_id, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lbl_id))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txt_peso, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lbl_peso))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txt_descripcion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lbl_descripcion))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txt_remitente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lbl_remitente))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lbl_tipoSobre)
-                    .addComponent(cb_tipoSobre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(checkB_tieneDocumentos)
-                    .addComponent(lbl_tieneDocumentos))
-                .addGap(18, 18, 18)
-                .addComponent(lbl_error, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btn_crearSobre)
-                .addContainerGap())
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txt_descripcionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_descripcionActionPerformed
+    private void txt_remitenteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_remitenteActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txt_descripcionActionPerformed
+    }//GEN-LAST:event_txt_remitenteActionPerformed
 
     private void btn_crearSobreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_crearSobreActionPerformed
-        boolean error = false;
+    boolean error = false;
         String mensajeError = "";
         lbl_error.setText("");
         ArrayList<String> listaDatos = new ArrayList<>();
@@ -159,7 +184,7 @@ public class crearSobre extends javax.swing.JDialog {
                 if (Controlador.getSingletonInstance().validarDigitosDobles(txt_peso.getText())){
                     Sobre sobre = Controlador.getSingletonInstance().getGestorEntregable().crearSobre(Integer.parseInt(txt_id.getText()), 
                             Double.parseDouble(txt_peso.getText()), 
-                            txt_descripcion.getText(), txt_remitente.getText(),(String)cb_tipoSobre.getSelectedItem(),checkB_tieneDocumentos.isSelected());
+                            txt_descripcion.getText(), txt_remitente.getText(),(String)cb_tipoSobre.getSelectedItem(),checkB_tieneDocumentos.isActivado());
                     boolean insertado = Controlador.getSingletonInstance().getGestorEntregable().buscarEntregableEInsertar(sobre, casillero);
                     if (!insertado) { //Si no lo insertó
                         lbl_error.setText("Ya existe un sobre con el mismo id.");
@@ -176,9 +201,9 @@ public class crearSobre extends javax.swing.JDialog {
         }
             mensajeError = mensajeError + "No se pueden dejar espacios en blanco.\n";    
         
-        
+          
     }//GEN-LAST:event_btn_crearSobreActionPerformed
-
+    
     /**
      * @param args the command line arguments
      */
@@ -223,19 +248,89 @@ public class crearSobre extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btn_crearSobre;
-    private javax.swing.JComboBox<String> cb_tipoSobre;
-    private javax.swing.JCheckBox checkB_tieneDocumentos;
-    private javax.swing.JLabel lbl_descripcion;
+    private rojeru_san.RSButtonRiple btn_crearSobre;
+    private rojeru_san.RSButtonRiple btn_modificarCliente3;
+    private rojeru_san.RSButtonRiple btn_modificarCliente4;
+    private rojeru_san.RSButtonRiple btn_modificarCliente5;
+    private rojeru_san.RSButtonRiple btn_modificarCliente6;
+    private rojeru_san.RSButtonRiple btn_modificarCliente7;
+    private rojeru_san.RSButtonRiple btn_modificarCliente8;
+    private rojerusan.RSComboMetro cb_sexo3;
+    private rojerusan.RSComboMetro cb_sexo4;
+    private rojerusan.RSComboMetro cb_sexo5;
+    private rojerusan.RSComboMetro cb_sexo6;
+    private rojerusan.RSComboMetro cb_sexo7;
+    private rojerusan.RSComboMetro cb_sexo8;
+    private rojerusan.RSComboMetro cb_tipoSobre;
+    private rojerusan.RSSwitch checkB_tieneDocumentos;
+    private javax.swing.JPanel jPanel10;
+    private javax.swing.JPanel jPanel11;
+    private javax.swing.JPanel jPanel12;
+    private javax.swing.JPanel jPanel13;
+    private javax.swing.JPanel jPanel14;
+    private javax.swing.JPanel jPanel15;
+    private javax.swing.JPanel jPanel16;
+    private javax.swing.JPanel jPanel17;
+    private javax.swing.JPanel jPanel18;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel7;
+    private javax.swing.JPanel jPanel8;
+    private javax.swing.JPanel jPanel9;
+    private javax.swing.JLabel lbl_creacionCounter;
+    private javax.swing.JLabel lbl_creacionCounter1;
+    private javax.swing.JLabel lbl_creacionCounter3;
+    private javax.swing.JLabel lbl_creacionCounter4;
+    private javax.swing.JLabel lbl_creacionCounter5;
+    private javax.swing.JLabel lbl_creacionCounter6;
+    private javax.swing.JLabel lbl_creacionCounter7;
+    private javax.swing.JLabel lbl_creacionCounter8;
     private javax.swing.JLabel lbl_error;
-    private javax.swing.JLabel lbl_id;
-    private javax.swing.JLabel lbl_peso;
-    private javax.swing.JLabel lbl_remitente;
-    private javax.swing.JLabel lbl_tieneDocumentos;
-    private javax.swing.JLabel lbl_tipoSobre;
-    private javax.swing.JTextField txt_descripcion;
-    private javax.swing.JTextField txt_id;
-    private javax.swing.JTextField txt_peso;
-    private javax.swing.JTextField txt_remitente;
+    private javax.swing.JLabel lbl_error4;
+    private javax.swing.JLabel lbl_error5;
+    private javax.swing.JLabel lbl_error6;
+    private javax.swing.JLabel lbl_error7;
+    private javax.swing.JLabel lbl_error8;
+    private javax.swing.JLabel lbl_error9;
+    private rojeru_san.RSMTextFull txt_correo3;
+    private rojeru_san.RSMTextFull txt_correo4;
+    private rojeru_san.RSMTextFull txt_correo5;
+    private rojeru_san.RSMTextFull txt_correo6;
+    private rojeru_san.RSMTextFull txt_correo7;
+    private rojeru_san.RSMTextFull txt_correo8;
+    private rojeru_san.RSMTextFull txt_descripcion;
+    private rojeru_san.RSMTextFull txt_direccion3;
+    private rojeru_san.RSMTextFull txt_direccion4;
+    private rojeru_san.RSMTextFull txt_direccion5;
+    private rojeru_san.RSMTextFull txt_direccion6;
+    private rojeru_san.RSMTextFull txt_direccion7;
+    private rojeru_san.RSMTextFull txt_direccion8;
+    private rojeru_san.RSMTextFull txt_fechaNacimiento3;
+    private rojeru_san.RSMTextFull txt_fechaNacimiento4;
+    private rojeru_san.RSMTextFull txt_fechaNacimiento5;
+    private rojeru_san.RSMTextFull txt_fechaNacimiento6;
+    private rojeru_san.RSMTextFull txt_fechaNacimiento7;
+    private rojeru_san.RSMTextFull txt_fechaNacimiento8;
+    private rojeru_san.RSMTextFull txt_id;
+    private rojeru_san.RSMTextFull txt_identificador3;
+    private rojeru_san.RSMTextFull txt_identificador4;
+    private rojeru_san.RSMTextFull txt_identificador5;
+    private rojeru_san.RSMTextFull txt_identificador6;
+    private rojeru_san.RSMTextFull txt_identificador7;
+    private rojeru_san.RSMTextFull txt_identificador8;
+    private rojeru_san.RSMTextFull txt_nombre3;
+    private rojeru_san.RSMTextFull txt_nombre4;
+    private rojeru_san.RSMTextFull txt_nombre5;
+    private rojeru_san.RSMTextFull txt_nombre6;
+    private rojeru_san.RSMTextFull txt_nombre7;
+    private rojeru_san.RSMTextFull txt_nombre8;
+    private rojeru_san.RSMTextFull txt_peso;
+    private rojeru_san.RSMTextFull txt_remitente;
+    private rojeru_san.RSMTextFull txt_telefono3;
+    private rojeru_san.RSMTextFull txt_telefono4;
+    private rojeru_san.RSMTextFull txt_telefono5;
+    private rojeru_san.RSMTextFull txt_telefono6;
+    private rojeru_san.RSMTextFull txt_telefono7;
+    private rojeru_san.RSMTextFull txt_telefono8;
     // End of variables declaration//GEN-END:variables
 }
