@@ -5,6 +5,7 @@ import control.Controlador;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import modelo.Casillero;
+import modelo.Email;
 import modelo.Sobre;
 
 public class crearSobre extends javax.swing.JDialog {
@@ -122,7 +123,7 @@ public class crearSobre extends javax.swing.JDialog {
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGap(22, 22, 22)
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE, false)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(checkB_tieneDocumentos, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lbl_creacionCounter1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addGroup(jPanel3Layout.createSequentialGroup()
@@ -170,7 +171,7 @@ public class crearSobre extends javax.swing.JDialog {
     }//GEN-LAST:event_txt_remitenteActionPerformed
 
     private void btn_crearSobreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_crearSobreActionPerformed
-    boolean error = false;
+        boolean error = false;
         String mensajeError = "";
         lbl_error.setText("");
         ArrayList<String> listaDatos = new ArrayList<>();
@@ -193,6 +194,10 @@ public class crearSobre extends javax.swing.JDialog {
                     JOptionPane.showMessageDialog(this, "Se registró el sobre con éxito", "Sobre registrado", JOptionPane.INFORMATION_MESSAGE);
                     casillero.getCliente().aumentarCantidadEntregablesRecibidos();
                     Controlador.getSingletonInstance().getGestorCliente().verificarTipoCliente(casillero.getCliente());
+                    casillero.getCliente().aumentarCantidadEntregablesPendientes();
+                    String mensaje = Controlador.getSingletonInstance().getGestorEntregable().obtenerEntregablesPendientesTexto(casillero.getCliente());
+                    Email email = new Email();
+                    email.enviarMail(casillero.getCliente().getCorreo(), mensaje);
                     this.dispose();
                 }
                 mensajeError = mensajeError  + "El peso debe ser un número.\n";     
@@ -201,7 +206,7 @@ public class crearSobre extends javax.swing.JDialog {
         }
             mensajeError = mensajeError + "No se pueden dejar espacios en blanco.\n";    
         
-          
+        
     }//GEN-LAST:event_btn_crearSobreActionPerformed
     
     /**
@@ -249,88 +254,16 @@ public class crearSobre extends javax.swing.JDialog {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private rojeru_san.RSButtonRiple btn_crearSobre;
-    private rojeru_san.RSButtonRiple btn_modificarCliente3;
-    private rojeru_san.RSButtonRiple btn_modificarCliente4;
-    private rojeru_san.RSButtonRiple btn_modificarCliente5;
-    private rojeru_san.RSButtonRiple btn_modificarCliente6;
-    private rojeru_san.RSButtonRiple btn_modificarCliente7;
-    private rojeru_san.RSButtonRiple btn_modificarCliente8;
-    private rojerusan.RSComboMetro cb_sexo3;
-    private rojerusan.RSComboMetro cb_sexo4;
-    private rojerusan.RSComboMetro cb_sexo5;
-    private rojerusan.RSComboMetro cb_sexo6;
-    private rojerusan.RSComboMetro cb_sexo7;
-    private rojerusan.RSComboMetro cb_sexo8;
     private rojerusan.RSComboMetro cb_tipoSobre;
     private rojerusan.RSSwitch checkB_tieneDocumentos;
-    private javax.swing.JPanel jPanel10;
-    private javax.swing.JPanel jPanel11;
-    private javax.swing.JPanel jPanel12;
-    private javax.swing.JPanel jPanel13;
-    private javax.swing.JPanel jPanel14;
-    private javax.swing.JPanel jPanel15;
-    private javax.swing.JPanel jPanel16;
-    private javax.swing.JPanel jPanel17;
-    private javax.swing.JPanel jPanel18;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel7;
-    private javax.swing.JPanel jPanel8;
-    private javax.swing.JPanel jPanel9;
     private javax.swing.JLabel lbl_creacionCounter;
     private javax.swing.JLabel lbl_creacionCounter1;
-    private javax.swing.JLabel lbl_creacionCounter3;
-    private javax.swing.JLabel lbl_creacionCounter4;
-    private javax.swing.JLabel lbl_creacionCounter5;
-    private javax.swing.JLabel lbl_creacionCounter6;
-    private javax.swing.JLabel lbl_creacionCounter7;
-    private javax.swing.JLabel lbl_creacionCounter8;
     private javax.swing.JLabel lbl_error;
-    private javax.swing.JLabel lbl_error4;
-    private javax.swing.JLabel lbl_error5;
-    private javax.swing.JLabel lbl_error6;
-    private javax.swing.JLabel lbl_error7;
-    private javax.swing.JLabel lbl_error8;
-    private javax.swing.JLabel lbl_error9;
-    private rojeru_san.RSMTextFull txt_correo3;
-    private rojeru_san.RSMTextFull txt_correo4;
-    private rojeru_san.RSMTextFull txt_correo5;
-    private rojeru_san.RSMTextFull txt_correo6;
-    private rojeru_san.RSMTextFull txt_correo7;
-    private rojeru_san.RSMTextFull txt_correo8;
     private rojeru_san.RSMTextFull txt_descripcion;
-    private rojeru_san.RSMTextFull txt_direccion3;
-    private rojeru_san.RSMTextFull txt_direccion4;
-    private rojeru_san.RSMTextFull txt_direccion5;
-    private rojeru_san.RSMTextFull txt_direccion6;
-    private rojeru_san.RSMTextFull txt_direccion7;
-    private rojeru_san.RSMTextFull txt_direccion8;
-    private rojeru_san.RSMTextFull txt_fechaNacimiento3;
-    private rojeru_san.RSMTextFull txt_fechaNacimiento4;
-    private rojeru_san.RSMTextFull txt_fechaNacimiento5;
-    private rojeru_san.RSMTextFull txt_fechaNacimiento6;
-    private rojeru_san.RSMTextFull txt_fechaNacimiento7;
-    private rojeru_san.RSMTextFull txt_fechaNacimiento8;
     private rojeru_san.RSMTextFull txt_id;
-    private rojeru_san.RSMTextFull txt_identificador3;
-    private rojeru_san.RSMTextFull txt_identificador4;
-    private rojeru_san.RSMTextFull txt_identificador5;
-    private rojeru_san.RSMTextFull txt_identificador6;
-    private rojeru_san.RSMTextFull txt_identificador7;
-    private rojeru_san.RSMTextFull txt_identificador8;
-    private rojeru_san.RSMTextFull txt_nombre3;
-    private rojeru_san.RSMTextFull txt_nombre4;
-    private rojeru_san.RSMTextFull txt_nombre5;
-    private rojeru_san.RSMTextFull txt_nombre6;
-    private rojeru_san.RSMTextFull txt_nombre7;
-    private rojeru_san.RSMTextFull txt_nombre8;
     private rojeru_san.RSMTextFull txt_peso;
     private rojeru_san.RSMTextFull txt_remitente;
-    private rojeru_san.RSMTextFull txt_telefono3;
-    private rojeru_san.RSMTextFull txt_telefono4;
-    private rojeru_san.RSMTextFull txt_telefono5;
-    private rojeru_san.RSMTextFull txt_telefono6;
-    private rojeru_san.RSMTextFull txt_telefono7;
-    private rojeru_san.RSMTextFull txt_telefono8;
     // End of variables declaration//GEN-END:variables
 }

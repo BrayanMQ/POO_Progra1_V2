@@ -9,6 +9,7 @@ import control.Controlador;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import modelo.Casillero;
+import modelo.Email;
 import modelo.Paquete;
 
 /**
@@ -230,6 +231,10 @@ public class crearPaquete extends javax.swing.JDialog {
                     JOptionPane.showMessageDialog(this, "Se registró el paquete con éxito", "Paquete registrado", JOptionPane.INFORMATION_MESSAGE);
                     casillero.getCliente().aumentarCantidadEntregablesRecibidos();
                     Controlador.getSingletonInstance().getGestorCliente().verificarTipoCliente(casillero.getCliente());
+                    casillero.getCliente().aumentarCantidadEntregablesPendientes();
+                    String mensaje = Controlador.getSingletonInstance().getGestorEntregable().obtenerEntregablesPendientesTexto(casillero.getCliente());
+                    Email email = new Email();
+                    email.enviarMail(casillero.getCliente().getCorreo(), mensaje);
                     this.dispose();
                 }
                  mensajeError = mensajeError  + "El peso debe ser un número.\n";
@@ -239,7 +244,6 @@ public class crearPaquete extends javax.swing.JDialog {
             mensajeError = mensajeError  + "No se debe dejar espacios en blanco.\n";
             
         lbl_error.setText(mensajeError);
-    
     }//GEN-LAST:event_btn_crearPaqueteActionPerformed
 
     /**

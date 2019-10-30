@@ -37,17 +37,21 @@ public class GestorCliente {
     public int registrarCliente(String pId, String pNombre, String pCorreo,
         String pTelefono, String pDireccion, String pSexo, Date pFechaNacimiento){
         
-        Casillero casillero = Controlador.getSingletonInstance().getCounter().getListaCasillerosDisponibles().poll();
-        casillero.setEstado(true); //Casillero ocupado
-        TSexo sexo = convertirTSexo(pSexo);
-        Cliente cliente = new Cliente(Integer.parseInt(pId), pNombre,
-                pCorreo, Integer.parseInt(pTelefono), pDireccion, sexo, pFechaNacimiento, casillero);
+        
+        if (!Controlador.getSingletonInstance().getCounter().getListaCasillerosDisponibles().isEmpty()) {
+            Casillero casillero = Controlador.getSingletonInstance().getCounter().getListaCasillerosDisponibles().poll();
+            casillero.setEstado(true); //Casillero ocupado
+            TSexo sexo = convertirTSexo(pSexo);
+            Cliente cliente = new Cliente(Integer.parseInt(pId), pNombre,
+                    pCorreo, Integer.parseInt(pTelefono), pDireccion, sexo, pFechaNacimiento, casillero);
 
-        casillero.setCliente(cliente);
-        Controlador.getSingletonInstance().getCounter().getListaCasillerosOcupados().add(casillero);
-        Controlador.getSingletonInstance().getCounter().getListaClientes().add(cliente);
-    
-        return casillero.getId();
+            casillero.setCliente(cliente);
+            Controlador.getSingletonInstance().getCounter().getListaCasillerosOcupados().add(casillero);
+            Controlador.getSingletonInstance().getCounter().getListaClientes().add(cliente);
+            return casillero.getId();
+        }
+        
+        return -1;
     }
     
     /**

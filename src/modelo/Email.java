@@ -54,7 +54,7 @@ public class Email implements IConstants{
             transportar.sendMessage(mail, mail.getRecipients(Message.RecipientType.TO));          
             transportar.close();
             
-            JOptionPane.showMessageDialog(null, "Mail Enviado, Verifique su Correo");
+            JOptionPane.showMessageDialog(null, "Mail Enviado", "Correo", JOptionPane.INFORMATION_MESSAGE);
             return true;
             
         } catch (AddressException ex) {

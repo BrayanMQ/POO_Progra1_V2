@@ -9,12 +9,15 @@ import control.Controlador;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.DefaultListModel;
+import javax.swing.JOptionPane;
 import javax.xml.bind.annotation.XmlElement;
 import modelo.Cliente;
 import modelo.Entregable;
+import modelo.IConstants;
 import modelo.Paquete;
 import modelo.Revista;
 import modelo.Sobre;
+import modelo.WebService.Cambio;
 
 /**
  *
@@ -22,6 +25,7 @@ import modelo.Sobre;
  */
 public class retiroArticulos extends javax.swing.JDialog {
     private static Cliente cliente;
+    private boolean bandera;
     /**
      * Creates new form retiroArticulos
      */
@@ -30,24 +34,36 @@ public class retiroArticulos extends javax.swing.JDialog {
     public retiroArticulos(java.awt.Frame parent, boolean modal, Cliente cliente) {
         super(parent, modal);
         this.cliente = cliente;
-        
-        
+        this.bandera = false;
+
         initComponents();
+        Cambio TipoCambio = new Cambio();
+        lbl_Compra1.setText("Compra: " + TipoCambio.getCompra());
+        lbl_Venta1.setText("Venta: " + TipoCambio.getVenta());
         modeloLista = new DefaultListModel();
         list_entregables.setModel(modeloLista);
         for (Entregable entregable : cliente.getCasillero().getListaEntregables()) {
+            double montoDolares = Controlador.getSingletonInstance().getGestorEntregable().calcularMontoDolaresEntregable(entregable);
+            double montoColones = Controlador.getSingletonInstance().getGestorEntregable().conversionColones(montoDolares);
             if (!entregable.isEstado()) {
                 if (entregable instanceof Revista) {
-                    Revista entregableTemporal = (Revista)entregable;
-                    modeloLista.addElement("Id: " + entregable.getId() + " -Revista descripción: " + entregableTemporal.getDescripcion());
-                }else if (entregable instanceof Paquete) {
-                        Paquete entregableTemporal = (Paquete)entregable;
-                        modeloLista.addElement("Id: " + entregable.getId() + " -Paquete descripción: " + entregableTemporal.getDescripcion());
-                }else{
-                    Sobre entregableTemporal = (Sobre)entregable;
-                    modeloLista.addElement("Id: " + entregable.getId() + " -Sobre descripción: " + entregableTemporal.getDescripcion());
+                    Revista entregableTemporal = (Revista) entregable;
+                    modeloLista.addElement("Id: " + entregable.getId() + " | Tipo: Revista | Descripción: " + entregableTemporal.getDescripcion() + " Monto en dólares: " + montoDolares + " Monto en colones: " + String.format("%.2f",montoColones));
+                } else if (entregable instanceof Paquete) {
+                    Paquete entregableTemporal = (Paquete) entregable;
+                    modeloLista.addElement("Id: " + entregable.getId() + " | Tipo: Paquete | Descripción: " + entregableTemporal.getDescripcion() + " Monto en dólares: " + montoDolares + " Monto en colones: " + String.format("%.2f",montoColones));
+                } else {
+                    Sobre entregableTemporal = (Sobre) entregable;
+                    modeloLista.addElement("Id: " + entregable.getId() + " | Tipo: Sobre | Descripción: " + entregableTemporal.getDescripcion() + " Monto en dólares: " + montoDolares + " Monto en colones: " + String.format("%.2f",montoColones));
                 }
+                this.bandera = true;
             }
+        }
+
+        if (!bandera) {
+            btn_calcular.setEnabled(false);
+            btn_retirar.setEnabled(false);
+            JOptionPane.showMessageDialog(this, "No tiene artículos pendientes.", "Información", JOptionPane.INFORMATION_MESSAGE);
         }
     }
 
@@ -95,6 +111,11 @@ public class retiroArticulos extends javax.swing.JDialog {
         lbl_creacionCounter.setText("Crear Paquete");
 
         btn_retirar.setText("Retirar");
+        btn_retirar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_retirarActionPerformed(evt);
+            }
+        });
 
         btn_calcular.setText("Calcular");
         btn_calcular.addActionListener(new java.awt.event.ActionListener() {
@@ -238,25 +259,82 @@ public class retiroArticulos extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btn_calcularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_calcularActionPerformed
+         List<String> listaSeleccionados = list_entregables.getSelectedValuesList();
+            if (!listaSeleccionados.isEmpty()) {
+                ArrayList<String> listaIds = new ArrayList<>();
+                for (String entregableSeleccionado : listaSeleccionados) {
+                    String id = "";
+                    for (int i = 4; i < entregableSeleccionado.length(); i++) {
+                        char c = entregableSeleccionado.charAt(i);
+                        if (c != ' ') {
+                            id += c;
+                        }else{
+                            listaIds.add(id);
+                            break;
+                        }
+                    }
+                }
 
-    List<String> listaSeleccionados = list_entregables.getSelectedValuesList();
-    ArrayList<String> listaIds = new ArrayList<>();
-    for (String entregableSeleccionado : listaSeleccionados) {
-        String id = "";
-        for (int i = 4; i < entregableSeleccionado.length(); i++) {
-            char c = entregableSeleccionado.charAt(i);
-            if (c != ' ') {
-                id += c;
+                ArrayList<Entregable> listaEntregables = Controlador.getSingletonInstance().getGestorEntregable().buscarEntregablesSeleccionados(listaIds, cliente.getCasillero());
+                double montoDolares = Controlador.getSingletonInstance().getGestorEntregable().calcularMontoDolares(listaEntregables);
+                montoDolares = Controlador.getSingletonInstance().getGestorEntregable().calcularDescuento(montoDolares, cliente);
+                lbl_dolares.setText(String.valueOf(montoDolares));
+                double montoColones = Controlador.getSingletonInstance().getGestorEntregable().conversionColones(montoDolares);
+                lbl_colones.setText(String.valueOf(String.format("%.2f",montoColones)));
             }else{
-                listaIds.add(id);
-                break;
+                JOptionPane.showMessageDialog(this, "Debe seleccionar al menos un entregable para calcular el monto a pagar.", "Error", JOptionPane.ERROR_MESSAGE);
             }
-        }
-    }
-
-    ArrayList<Entregable> listaEntregables = Controlador.getSingletonInstance().getGestorEntregable().buscarEntregablesSeleccionados(listaIds, cliente.getCasillero());
-
     }//GEN-LAST:event_btn_calcularActionPerformed
+
+    private void btn_retirarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_retirarActionPerformed
+               
+        Object opcion = JOptionPane.showInputDialog(null, "Seleccione el método de pago", "Elegir tipo de pago",
+                JOptionPane.QUESTION_MESSAGE,null,
+                IConstants.METODO_PAGO_COMBOBOX, 
+                IConstants.METODO_PAGO_COMBOBOX[0]);
+        
+        Object opcion2 = new Object();
+        
+        if (opcion != null) {
+            if (opcion.toString().equalsIgnoreCase("De contado")) {
+                
+            } else if (opcion.toString().equalsIgnoreCase("Tarjeta")) {
+                opcion2 = JOptionPane.showInputDialog(null, "Seleccione el tipo de tarjeta.", "Elegir tipo de tarjeta",
+                JOptionPane.QUESTION_MESSAGE,null,
+                IConstants.TIPOS_TARJETA_COMBOBOX, 
+                IConstants.TIPOS_TARJETA_COMBOBOX[0]);
+                
+            }
+            if (opcion2 != null) {
+                    List<String> listaSeleccionados = list_entregables.getSelectedValuesList();
+                    if (!listaSeleccionados.isEmpty()) {
+                        ArrayList<String> listaIds = new ArrayList<>();
+                        for (String entregableSeleccionado : listaSeleccionados) {
+                            String id = "";
+                            for (int i = 4; i < entregableSeleccionado.length(); i++) {
+                                char c = entregableSeleccionado.charAt(i);
+                                if (c != ' ') {
+                                    id += c;
+                                } else {
+                                    listaIds.add(id);
+                                    break;
+                                }
+                            }
+                        }
+
+                        ArrayList<Entregable> listaEntregables = Controlador.getSingletonInstance()
+                                .getGestorEntregable().buscarEntregablesSeleccionados(listaIds, cliente.getCasillero());
+                        Controlador.getSingletonInstance().getGestorEntregable().retirarEntregables(listaEntregables);
+                        cliente.decrementarCantidadEntregablesPendientes(listaSeleccionados.size());
+                        JOptionPane.showMessageDialog(this, "Se retiraron los entregables con éxito", "Entregables retirados", JOptionPane.INFORMATION_MESSAGE);
+                        this.dispose();
+                    } else {
+                        JOptionPane.showMessageDialog(this, "Debe seleccionar al menos un entregable para retirar.", "Error", JOptionPane.ERROR_MESSAGE);
+                    }
+                }
+        }
+        
+    }//GEN-LAST:event_btn_retirarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -303,16 +381,12 @@ public class retiroArticulos extends javax.swing.JDialog {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private rojeru_san.RSButtonRiple btn_calcular;
     private rojeru_san.RSButtonRiple btn_retirar;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JLabel lbl_Compra;
     private javax.swing.JLabel lbl_Compra1;
-    private javax.swing.JLabel lbl_Venta;
     private javax.swing.JLabel lbl_Venta1;
     private javax.swing.JLabel lbl_colones;
     private javax.swing.JLabel lbl_creacionCounter;

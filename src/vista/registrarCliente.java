@@ -167,7 +167,7 @@ public class registrarCliente extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btn_crearClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_crearClienteActionPerformed
-            boolean error = false;
+        boolean error = false;
         String mensajeError = "";
         lbl_error.setText("");
         ArrayList<String> listaDatos = new ArrayList<>();
@@ -213,10 +213,15 @@ public class registrarCliente extends javax.swing.JDialog {
             if (!error) {
                 int idCasillero = Controlador.getSingletonInstance().getGestorCliente().registrarCliente(
                         txt_identificador.getText(), txt_nombre.getText(), txt_correo.getText(), txt_telefono.getText(), txt_direccion.getText(), (String)cb_sexo.getSelectedItem(), fechaNacimiento);
-                JOptionPane.showMessageDialog(this, "Se registró correctamente. Su número de casillero es: " + idCasillero, "Registro exitoso", JOptionPane.INFORMATION_MESSAGE);
+                if (idCasillero != -1) {
+                    JOptionPane.showMessageDialog(this, "Se registró correctamente. Su número de casillero es: " + idCasillero, "Registro exitoso", JOptionPane.INFORMATION_MESSAGE);
+                }else{
+                    JOptionPane.showMessageDialog(this, "No se pudo registrar al cliente, ya que no hay casilleros disponibles. ", "Registro fallido", JOptionPane.ERROR_MESSAGE);
+                }
+                
                 this.dispose();
             }
-        }
+        }     
     }//GEN-LAST:event_btn_crearClienteActionPerformed
 
     /**

@@ -22,6 +22,7 @@ public class Cliente {
     private Casillero casillero;
     private TCliente tipoCliente;
     private int cantidadEntregablesRecibidos;
+    private int cantidadEntregablesPendientes;
 
     public Cliente(int id) {
         this.id = id;
@@ -38,6 +39,11 @@ public class Cliente {
         this.sexo = sexo;
         this.fechaNacimiento = fechaNacimiento;
         this.casillero = casillero;
+        this.cantidadEntregablesPendientes = 0;
+    }
+    
+    public int getCantidadEntregablesPendientes() {
+        return cantidadEntregablesPendientes;
     }
 
     public int getCantidadEntregablesRecibidos() {
@@ -47,6 +53,14 @@ public class Cliente {
     public void aumentarCantidadEntregablesRecibidos(){
         this.cantidadEntregablesRecibidos++;
     }
+    
+    public void aumentarCantidadEntregablesPendientes(){
+        this.cantidadEntregablesPendientes++;
+    }
+     
+    public void decrementarCantidadEntregablesPendientes(int pCant){
+        this.cantidadEntregablesPendientes = this.cantidadEntregablesPendientes - pCant; 
+    } 
 
     public int getId() {
         return id;

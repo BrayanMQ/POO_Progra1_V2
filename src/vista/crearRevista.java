@@ -9,6 +9,7 @@ import control.Controlador;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import modelo.Casillero;
+import modelo.Email;
 import modelo.Revista;
 
 /**
@@ -143,9 +144,9 @@ public class crearRevista extends javax.swing.JDialog {
                     .addComponent(txt_remitente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txt_tema, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(22, 22, 22)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(checkB_esCatalogo, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lbl_creacionCounter1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lbl_creacionCounter1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(lbl_error, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -229,6 +230,10 @@ public class crearRevista extends javax.swing.JDialog {
                     JOptionPane.showMessageDialog(this, "Se registró la revista con éxito", "Paquete registrado", JOptionPane.INFORMATION_MESSAGE);
                     casillero.getCliente().aumentarCantidadEntregablesRecibidos();
                     Controlador.getSingletonInstance().getGestorCliente().verificarTipoCliente(casillero.getCliente());
+                    casillero.getCliente().aumentarCantidadEntregablesPendientes();
+                    String mensaje = Controlador.getSingletonInstance().getGestorEntregable().obtenerEntregablesPendientesTexto(casillero.getCliente());
+                    Email email = new Email();
+                    email.enviarMail(casillero.getCliente().getCorreo(), mensaje);
                     this.dispose();
                 }
                         

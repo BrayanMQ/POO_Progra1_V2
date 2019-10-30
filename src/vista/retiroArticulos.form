@@ -149,6 +149,9 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Retirar"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_retirarActionPerformed"/>
+              </Events>
             </Component>
             <Component class="rojeru_san.RSButtonRiple" name="btn_calcular">
               <Properties>

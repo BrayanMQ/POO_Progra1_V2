@@ -6,8 +6,10 @@
 package vista;
 
 import control.Controlador;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import javax.swing.JOptionPane;
 import modelo.Cliente;
 import modelo.TSexo;
 
@@ -23,13 +25,15 @@ public class modificarCliente extends javax.swing.JDialog {
     public modificarCliente(java.awt.Frame parent, boolean modal, Cliente cliente) {
         super(parent, modal);
         this.cliente = cliente;
-        txt_identificador.setText((String.valueOf(cliente.getId())));
+        initComponents();
+        SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
+        txt_identificador.setText(String.valueOf(cliente.getId()));
         txt_nombre.setText(cliente.getNombre());
-        txt_telefono.setText((String.valueOf(cliente.getTelefono())));
+        txt_telefono.setText(String.valueOf(cliente.getTelefono()));
         txt_correo.setText(cliente.getCorreo());
         txt_direccion.setText(cliente.getDireccion());
-        txt_fechaNacimiento.setText(cliente.getFechaNacimiento().toString());
-        initComponents();
+        txt_fechaNacimiento.setText(formatter.format(cliente.getFechaNacimiento()));
+        txt_identificador.setEnabled(false);
     }
 
     /**
@@ -180,6 +184,7 @@ public class modificarCliente extends javax.swing.JDialog {
     }//GEN-LAST:event_txt_correoActionPerformed
 
     private void btn_modificarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_modificarClienteActionPerformed
+
         boolean error = false;
         String mensajeError = "";
         lbl_error.setText("");
@@ -222,7 +227,8 @@ public class modificarCliente extends javax.swing.JDialog {
                 Controlador.getSingletonInstance().getGestorCliente().modificarCliente(
                         txt_identificador.getText(), txt_nombre.getText(), txt_correo.getText(),
             txt_telefono.getText(), txt_direccion.getText(), (String)cb_sexo.getSelectedItem(), fechaNacimiento, cliente);
-
+                JOptionPane.showMessageDialog(this, "Se ha modificado correctamente.", "Información", JOptionPane.INFORMATION_MESSAGE);
+                this.dispose();
             }
         }
     }//GEN-LAST:event_btn_modificarClienteActionPerformed

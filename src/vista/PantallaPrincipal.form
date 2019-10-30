@@ -13,59 +13,12 @@
             <Property name="text" type="java.lang.String" value="Clientes"/>
           </Properties>
           <SubComponents>
-            <MenuItem class="javax.swing.JMenuItem" name="menuItem_registrarCliente">
+            <MenuItem class="javax.swing.JMenuItem" name="menuItem_obtenerListaClienteConPendientes">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Registrar cliente"/>
+                <Property name="text" type="java.lang.String" value="Lista de clientes con pendientes"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menuItem_registrarClienteActionPerformed"/>
-              </Events>
-            </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="menuItem_modificarCliente">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Modificar cliente"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menuItem_modificarClienteActionPerformed"/>
-              </Events>
-            </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="menuItem_consultarCliente">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Consultar cliente"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menuItem_consultarClienteActionPerformed"/>
-              </Events>
-            </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="menuItem_eliminarCliente">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Eliminar cliente"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menuItem_eliminarClienteActionPerformed"/>
-              </Events>
-            </MenuItem>
-          </SubComponents>
-        </Menu>
-        <Menu class="javax.swing.JMenu" name="subMenu_articulos">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Art&#xed;culos"/>
-          </Properties>
-          <SubComponents>
-            <MenuItem class="javax.swing.JMenuItem" name="menuItem_recepcionArticulos">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Recepci&#xf3;n de art&#xed;culos"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menuItem_recepcionArticulosActionPerformed"/>
-              </Events>
-            </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="menuItem_retiroArticulos">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Retiro de art&#xed;culos"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menuItem_retiroArticulosActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menuItem_obtenerListaClienteConPendientesActionPerformed"/>
               </Events>
             </MenuItem>
           </SubComponents>
